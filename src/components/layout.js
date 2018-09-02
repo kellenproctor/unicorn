@@ -33,7 +33,8 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header
-          background="background-image: linear-gradient(0deg, #00701a 0%, #2AFD98 100%)"
+          //background="background-image: linear-gradient(0deg, #00701a 0%, #2AFD98 100%)"
+          background="background-image: linear-gradient(116deg, #08aeea 0%, #2af598 100%)"
           title={data.site.siteMetadata.title}
         />
         <LayoutContainer>{children}</LayoutContainer>
