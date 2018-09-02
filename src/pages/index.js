@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import Button from '../styledComponents/theme'
-import Heading2 from '../styledComponents/typograpy'
+import Heading2 from '../styledComponents/typography'
 
 import Layout from '../components/layout'
 
