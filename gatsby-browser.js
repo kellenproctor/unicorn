@@ -5,21 +5,20 @@
  */
 
 // ./gatsby-browser.js
-/* eslint-disable react/prop-types, import/no-extraneous-dependencies */
 import React from 'react'
-import { Router } from 'react-router-dom'
 import FirebaseProvider from './src/containers/FirebaseProvider'
 
 import firebase from './src/services/firebase'
 
-const replaceRouterComponent = ({ history }) => {
-  const ConnectedRouterWrapper = ({ children }) => (
+// prettier-ignore
+const wrapRouteElement = ({ element }) => {
+  const ConnectedRouterElement = (
     <FirebaseProvider firebase={firebase}>
-      <Router history={history}>{children}</Router>
+      {element}
     </FirebaseProvider>
   )
 
-  return ConnectedRouterWrapper
+  return ConnectedRouterElement
 }
 
-export default replaceRouterComponent
+export default wrapRouteElement
