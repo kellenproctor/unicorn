@@ -5,20 +5,6 @@
  */
 
 // ./gatsby-browser.js
-import React from 'react'
 import FirebaseProvider from './src/containers/FirebaseProvider'
 
-import firebase from './src/services/firebase'
-
-// prettier-ignore
-const wrapRouteElement = ({ element }) => {
-  const ConnectedRouterElement = (
-    <FirebaseProvider firebase={firebase}>
-      {element}
-    </FirebaseProvider>
-  )
-
-  return ConnectedRouterElement
-}
-
-export default wrapRouteElement
+export const wrapRootElement = FirebaseProvider

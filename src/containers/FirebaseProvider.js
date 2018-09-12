@@ -1,30 +1,15 @@
 // ./src/containers/FirebaseProvider.js
 import React from 'react'
-import PropTypes from 'prop-types'
+import firebase from '../services/firebase'
 
-class FirebaseProvider extends React.Component {
-  static propTypes = {
-    children: PropTypes.element,
-    firebase: PropTypes.object.isRequired,
-  }
+export const Firebase = React.createContext(firebase)
 
-  static childContextTypes = {
-    firebase: PropTypes.object,
-  }
-
-  getChildContext() {
-    const { firebase } = this.props
-
-    return {
-      firebase,
-    }
-  }
-
-  render() {
-    const { children } = this.props
-
-    return children
-  }
+const FirebaseProvider = ({ element }) => {
+  return (
+    <Firebase.Provider firebase_browser={firebase}>
+      {element}
+    </Firebase.Provider>
+  )
 }
 
 export default FirebaseProvider
