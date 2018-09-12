@@ -3,12 +3,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import Header from './header'
 import Container from '../styledComponents/layout'
 import './layout.css'
 
-const LayoutContainer = Container.extend`
+const LayoutContainer = styled(Container)`
   padding-top: 0;
 `
 
@@ -37,6 +38,8 @@ const Layout = ({ children }) => (
           //background="background-image: linear-gradient(0deg, #00701a 0%, #2AFD98 100%)"
           background="background-image: linear-gradient(116deg, #08aeea 0%, #2af598 100%)"
           title={data.site.siteMetadata.title}
+          signIn={() => {}}
+          signOut={() => {}}
         />
         <LayoutContainer>{children}</LayoutContainer>
       </>
