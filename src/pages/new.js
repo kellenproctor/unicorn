@@ -10,7 +10,7 @@ import Button from '../styledComponents/theme'
 import Heading2 from '../styledComponents/typography'
 import NewPoll from '../components/NewPoll/index'
 
-const CreateButton = Button.extend`
+const CreateButton = styled(Button)`
   background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
   margin-left: 20px;
 `;
