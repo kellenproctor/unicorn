@@ -16,14 +16,10 @@ class Auth extends React.Component {
     children: PropTypes.func.isRequired,
   }
 
-  static contextTypes = {
-    firebase: PropTypes.object,
-  }
-
   state = INITIAL_STATE
 
   componentDidMount() {
-    const { auth } = this.context.firebase
+    const { auth } = this.props.firebase
     // onAuthStateChanged returns an unsubscribe method
     this.stopAuthListener = auth().onAuthStateChanged(user => {
       if (user) {
@@ -40,7 +36,7 @@ class Auth extends React.Component {
   }
 
   handleSignIn = provider => {
-    const { auth } = this.context.firebase
+    const { auth } = this.props.firebase
 
     switch (provider) {
       // the auth listener will handle the success cases
@@ -73,7 +69,7 @@ class Auth extends React.Component {
   }
 
   handleSignOut = () => {
-    const { auth } = this.context.firebase
+    const { auth } = this.props.firebase
 
     return auth().signOut()
   }

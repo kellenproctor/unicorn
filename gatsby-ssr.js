@@ -5,6 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-import FirebaseProvider from './src/containers/FirebaseProvider'
+// import FirebaseProvider from './src/containers/FirebaseProvider'
 
-export const wrapRootElement = FirebaseProvider
+// export const wrapRootElement = FirebaseProvider
