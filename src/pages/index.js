@@ -4,10 +4,8 @@ import { Link } from 'gatsby'
 import Button from '../styledComponents/theme'
 import Heading2 from '../styledComponents/typography'
 
-import Layout from '../components/layout'
-
 const IndexPage = () => (
-  <Layout>
+  <>
     <Heading2>A next-generation polling application</Heading2>
     <p>
       Built from the ground up - Ut pariatur velit eu fugiat ut. Veniam commodo
@@ -20,7 +18,7 @@ const IndexPage = () => (
     <Link to="/new">
       <Button>New Poll</Button>
     </Link>
-  </Layout>
+  </>
 )
 
 export default IndexPage
