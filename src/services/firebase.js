@@ -4,12 +4,12 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const config = {
-  apiKey: 'AIzaSyBTSQVo3k2KyEExaULT8toq4UZELU7dmUs',
-  authDomain: 'unicorn-b66dd.firebaseapp.com',
-  databaseURL: 'https://unicorn-b66dd.firebaseio.com',
-  projectId: 'unicorn-b66dd',
-  storageBucket: 'unicorn-b66dd.appspot.com',
-  messagingSenderId: '1044799415571',
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
 }
 
 class Firebase {
