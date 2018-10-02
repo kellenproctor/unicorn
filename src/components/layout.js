@@ -15,7 +15,43 @@ const LayoutContainer = styled(Container)`
   padding-top: 0;
 `
 
-const Layout = ({ children, props }) => (
+const Layout = ({ data, children, props }) => (
+  <FirebaseContext.Consumer>
+    {firebase => (
+      <Auth firebase={firebase}>
+        {auth => (
+          <>
+            <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                { name: 'description', content: 'Sample' },
+                { name: 'keywords', content: 'sample, something' },
+              ]}>
+              <html lang="en" />
+            </Helmet>
+            <Header
+              //background="background-image: linear-gradient(0deg, #00701a 0%, #2AFD98 100%)"
+              background="background-image: linear-gradient(116deg, #08aeea 0%, #2af598 100%)"
+              title={data.site.siteMetadata.title}
+              {...auth}
+            />
+            <LayoutContainer>
+              {React.Children.map(children, child => (
+                React.cloneElement(child, {
+                  ...props,
+                  ...auth,
+                  firebase
+                })
+              ))}
+            </LayoutContainer>
+          </>
+        )}
+      </Auth>
+    )}
+  </FirebaseContext.Consumer>
+)
+
+export default props => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -26,46 +62,17 @@ const Layout = ({ children, props }) => (
         }
       }
     `}
-    render={data => (
-      <FirebaseContext.Consumer>
-        {firebase => (
-          <Auth firebase={firebase}>
-            {auth => (
-              <>
-                <Helmet
-                  title={data.site.siteMetadata.title}
-                  meta={[
-                    { name: 'description', content: 'Sample' },
-                    { name: 'keywords', content: 'sample, something' },
-                  ]}>
-                  <html lang="en" />
-                </Helmet>
-                <Header
-                  //background="background-image: linear-gradient(0deg, #00701a 0%, #2AFD98 100%)"
-                  background="background-image: linear-gradient(116deg, #08aeea 0%, #2af598 100%)"
-                  title={data.site.siteMetadata.title}
-                  {...auth}
-                />
-                <LayoutContainer>
-                  {children.map(child => (
-                    React.cloneElement(child, {
-                      ...props,
-                      ...auth,
-                      firebase
-                    })
-                  ))}
-                </LayoutContainer>
-              </>
-            )}
-          </Auth>
-        )}
-      </FirebaseContext.Consumer>
-    )}
+    render={data => <Layout data={data} {...props} />}
   />
 )
 
 Layout.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string,
+      }),
+    }),
+  }),
   children: PropTypes.node.isRequired,
 }
-
-export default Layout
