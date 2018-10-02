@@ -6,7 +6,7 @@ import FirebaseContext from './FirebaseContext'
 
 const FirebaseProvider = ({ element }) => {
   return (
-    <FirebaseContext.Provider firebase={firebase.auth}>
+    <FirebaseContext.Provider firebase={firebase}>
       {element}
     </FirebaseContext.Provider>
   )

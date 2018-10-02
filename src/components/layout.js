@@ -15,7 +15,7 @@ const LayoutContainer = styled(Container)`
   padding-top: 0;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, props }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -46,13 +46,20 @@ const Layout = ({ children }) => (
                   title={data.site.siteMetadata.title}
                   {...auth}
                 />
-                <LayoutContainer>{children}</LayoutContainer>
+                <LayoutContainer>
+                  {children.map(child => (
+                    React.cloneElement(child, {
+                      ...props,
+                      ...auth,
+                      firebase
+                    })
+                  ))}
+                </LayoutContainer>
               </>
             )}
           </Auth>
         )}
       </FirebaseContext.Consumer>
-      
     )}
   />
 )
