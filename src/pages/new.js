@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Layout from '../components/layout'
 import { arrayMove } from 'react-sortable-hoc'
 import shortId from 'short-id'
 
@@ -38,9 +37,9 @@ const TitleInput = styled.input`
 
 class NewPollPage extends Component {
   static propTypes = {
-    history: PropTypes.object.isRequired,
+    //history: PropTypes.object.isRequired,
     uid: PropTypes.string,
-    signIn: PropTypes.func.isRequired,
+    //signIn: PropTypes.func.isRequired,
   }
 
   state = {
@@ -208,7 +207,7 @@ class NewPollPage extends Component {
     const disableCreate = !title || optionsWithText.length < 2 || loading
 
     return (
-      <Layout>
+      <>
         <Heading2>Create a new Poll</Heading2>
         <TitleContainer>
           <TitleLabel htmlFor="newPollTitle">Title</TitleLabel>
@@ -238,7 +237,7 @@ class NewPollPage extends Component {
             Add
           </CreateButton>
         </ActionContainer>
-      </Layout>
+      </>
     );
   }
 }
