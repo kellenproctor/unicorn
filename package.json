@@ -6,7 +6,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.6.4",
     "gatsby": "next",
-    "gatsby-plugin-create-client-paths": "^1.0.8",
+    "gatsby-plugin-create-client-paths": "^2.0.0-rc.1",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",

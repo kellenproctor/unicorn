@@ -4034,11 +4034,11 @@ gatsby-link@^2.0.0-rc.2:
     prop-types "^15.6.1"
     ric "^1.3.0"
 
-gatsby-plugin-create-client-paths@^1.0.8:
-  version "1.0.8"
-  resolved "http://registry.npmjs.org/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-1.0.8.tgz#d8628194675dec24da19ba3d3666b01e17b8c98a"
+gatsby-plugin-create-client-paths@^2.0.0-rc.1:
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.0.0-rc.1.tgz#1f0c6c036cd9f4a0f987083f2cafd099b70b4b80"
   dependencies:
-    babel-runtime "^6.26.0"
+    "@babel/runtime" "^7.0.0"
 
 gatsby-plugin-manifest@next:
   version "2.0.2-rc.1"

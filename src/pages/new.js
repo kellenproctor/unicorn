@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { arrayMove } from 'react-sortable-hoc'
 import shortId from 'short-id'
+import { navigate } from '@reach/router'
 
 import Button from '../styledComponents/theme'
 import Heading2 from '../styledComponents/typography'
@@ -37,7 +38,6 @@ const TitleInput = styled.input`
 
 class NewPollPage extends Component {
   static propTypes = {
-    //history: PropTypes.object.isRequired,
     uid: PropTypes.string,
     //signIn: PropTypes.func.isRequired,
   }
@@ -176,9 +176,8 @@ class NewPollPage extends Component {
   createPoll(pollId) {
     const { firebase } = this.props
     const { options, title } = this.state
-    const { history } = this.props
 
-    firebase.polls
+    firebase.store().collection('polls')
       .doc(pollId)
       .set({
         title,
@@ -192,7 +191,7 @@ class NewPollPage extends Component {
           title: '',
         })
 
-        history.PushManager(`/poll/${pollId}`)
+        navigate(`/poll/${pollId}`)
       })
       .catch(error => {
         // eslint-disable-next-line no-console
